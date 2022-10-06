@@ -13,10 +13,10 @@ stages:
         steps:
           - task: NodeTool@0
             inputs: 
-              versionSpec: '16.10'
+              versionSpec: '16.17.1'
             displayName: 'Node Installation'
           - script: |
-              npm install -g @angular/cli
+              npm install -g @angular/cli@latest
               npm install
               ng build –-configuration production
             displayName: 'npm install and build'
