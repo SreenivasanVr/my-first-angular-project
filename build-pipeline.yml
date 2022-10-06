@@ -6,6 +6,12 @@ trigger:
 pool:
   vmImage:  'ubuntu-latest'
 
+variables:
+  major: 1
+  minor: 1
+
+name: $(major).$(minor)$(Rev:.r)
+
 stages:
   - stage: Build
     jobs:
@@ -20,3 +26,11 @@ stages:
               npm install
               ng build
             displayName: 'npm install and build'
+  - stage: Build_Versioning
+    jobs:
+      - job: Build_Custom_Versioning
+        steps: 
+          - script: | 
+            echo $(major)
+            echo variables['build.sourceBranch']
+
