@@ -16,7 +16,7 @@ stages:
   - stage: Build
     jobs:
       - job: Node_Installation_build
-        condition: eq(variables['build.sourceBranch'], 'refs/heads/dev')
+        condition: eq(variables['Build.SourceBranch'], 'refs/heads/dev')
         steps:
           - task: NodeTool@0
             inputs: 
@@ -33,7 +33,6 @@ stages:
         steps: 
           - script: | 
               echo $(major)
-              echo $(variables['build.sourceBranch'])
               echo $(Build.SourceBranchName)
-              echo $(variables['Build.SourceBranchName'])
+              echo $(Build.SourceBranch)  
 
