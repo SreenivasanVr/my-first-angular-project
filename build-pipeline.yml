@@ -31,6 +31,6 @@ stages:
       - job: Build_Custom_Versioning
         steps: 
           - script: | 
-            echo $(major)
-            echo variables['build.sourceBranch']
+              echo $(major)
+              echo variables['build.sourceBranch']
 
